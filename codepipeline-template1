@@ -1,0 +1,18 @@
+template-file-path: buildspec.yaml
+parameters:
+  CodePipelineName: DevOpsSummative
+  ConnectionArn: >-
+    arn:aws:codeconnections:eu-west-2:276598899146:connection/bb7ee7d3-a22f-483c-a9b9-d30f247bce29
+  CICodeBuildSpec: |-
+    version: 0.2
+
+    phases:
+      build:
+        commands:
+          - echo "Starting maven build"
+          - mvn -B package --file pom.xml
+          - echo "Completed maven build successfully!"
+  BranchName: main
+  RetentionPolicy: Delete
+  FullRepositoryId: shaizai1/DevOpsSummative
+tags: {}
